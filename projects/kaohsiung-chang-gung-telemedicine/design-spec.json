@@ -1,0 +1,75 @@
+{
+  "project": "高雄長庚遠距醫療服務網絡建置與成果",
+  "language": "zh-TW",
+  "aspect_ratio": "16:9",
+  "audience": [
+    "醫院主管",
+    "醫療行政主管",
+    "合作院所",
+    "相關醫療人員"
+  ],
+  "purpose": "呈現服務網絡建置歷程、服務成果、跨域合作模式、特色亮點及下一階段發展",
+  "selected_style": {
+    "id": "clinical-calm-warm-orange",
+    "name": "臨床清晰・暖橘協作",
+    "base_recipe": "clinical-calm",
+    "selection_status": "user_selected",
+    "selection_note": "使用者於三案中選擇 A；後續不混入 B 或 C 的完整視覺語言。"
+  },
+  "palette": {
+    "navy": "163A5F",
+    "white": "FFFFFF",
+    "mist_white": "F6F9FC",
+    "chang_gung_orange_provisional": "F28C28",
+    "medical_teal": "2A8C8B",
+    "pale_blue_gray": "DCE8F1"
+  },
+  "brand_color_status": "長庚橘目前為提案色，正式色票待院方品牌規範確認。",
+  "fonts": {
+    "preferred": "Noto Sans TC",
+    "office_fallback": "Microsoft JhengHei",
+    "title_pt": "36-40",
+    "body_pt": "22-26",
+    "note_pt": "14-16",
+    "kpi_pt": "36-48"
+  },
+  "layout_rules": [
+    "每頁一個核心訊息，標題優先使用結論句。",
+    "採清楚網格、寬留白、細邊框圓角卡。",
+    "橘色約占視覺面積 10%，只標示重點數字、關鍵節點與行動。",
+    "友善插圖只作輔助，不以裝飾取代證據。",
+    "服務網絡地圖、流程、圖表標籤與數據均使用 PowerPoint 原生可編輯物件。",
+    "不得使用示意數字；資料不足時顯示〔待補資料〕。"
+  ],
+  "chart_rules": {
+    "network_map": "淺藍灰底圖、深藍主院區、橘色合作節點、青綠連線。",
+    "kpi_cards": "白底圓角卡，大數字、短標籤與統計期間。",
+    "timeline_and_flow": "深藍主線、橘色關鍵節點、青綠完成狀態。",
+    "trend_chart": "深藍主序列，橘色只標示轉折、事件或目標。",
+    "heatmap": "使用單一藍色階，避免紅綠價值暗示。"
+  },
+  "reference_sources": [
+    "skills/codex-ppt-style-expanded/references/styles.json#clinical-calm",
+    "skills/codex-ppt-style-expanded/references/style-expansion.md",
+    "projects/kaohsiung-chang-gung-telemedicine/style-directions.md#A"
+  ],
+  "approved_sample": "使用者已明確確認 Clinical Calm／臨床清晰風格；完整 v1 以 illustration placeholder 先行製作。",
+  "backend_requested": "built-in image generation",
+  "backend_actual": "unavailable in current environment",
+  "model_verified": false,
+  "production_status": "first_full_pptx_built_with_illustration_placeholders",
+  "editable_layer_contract": {
+    "raster": [
+      "無字背景",
+      "柔和醫療情境插圖"
+    ],
+    "native_powerpoint": [
+      "標題與內文",
+      "KPI 數字與標籤",
+      "地圖節點與院所名稱",
+      "時間軸與流程節點",
+      "趨勢圖與熱力表",
+      "頁碼與來源註記"
+    ]
+  }
+}
