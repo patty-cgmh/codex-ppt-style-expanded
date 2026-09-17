@@ -7,3 +7,7 @@ node_modules/
 !.env.example
 .DS_Store
 .build/
+
+# Generated presentation artifacts are rebuilt locally from source.
+projects/kaohsiung-chang-gung-telemedicine/output/*.pptx
+projects/kaohsiung-chang-gung-telemedicine/output/*.zip
