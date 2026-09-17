@@ -1,0 +1,2 @@
+# Third-party package imported by build_deck.py and validate_deck.py.
+python-pptx>=1.0.2,<2

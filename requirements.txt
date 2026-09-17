@@ -1,1 +1,2 @@
+# Required to build the editable PowerPoint deck locally on Windows, macOS, or Linux.
 python-pptx>=1.0.2,<2
