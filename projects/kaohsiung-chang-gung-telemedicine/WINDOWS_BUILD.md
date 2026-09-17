@@ -1,6 +1,22 @@
 # Windows 本機產生 PPTX
 
-此專案不提交 `.pptx` 或 `.zip` 二進位檔。下載或 clone GitHub repository 後，可在 Windows 本機從文字來源重建第一版簡報。
+此專案不提交 `.pptx` 或 `.zip` 二進位檔。下載或 clone GitHub repository 後，可在 Windows 本機分別重建 V1 與 V2。
+
+## 建置檔案位置
+
+Windows 建置只使用下列專案資料夾內的檔案：
+
+```text
+projects\kaohsiung-chang-gung-telemedicine\requirements.txt
+projects\kaohsiung-chang-gung-telemedicine\Windows_build_PPT.bat
+projects\kaohsiung-chang-gung-telemedicine\Windows_build_PPT_v2.bat
+projects\kaohsiung-chang-gung-telemedicine\build_deck.py
+projects\kaohsiung-chang-gung-telemedicine\build_deck_v2.py
+projects\kaohsiung-chang-gung-telemedicine\validate_deck.py
+projects\kaohsiung-chang-gung-telemedicine\validate_deck_v2.py
+```
+
+兩個 BAT 均先執行 `cd /d "%~dp0"`，再以 BAT 所在的專案資料夾作為 `.venv`、requirements、程式與 output 的唯一路徑基準。**不讀取 repository 根目錄的 `requirements.txt`。**
 
 ## 系統需求
 
@@ -11,7 +27,7 @@
 
 安裝 Python 時請勾選 **Add python.exe to PATH**。若系統提供 Windows Python Launcher（`py`），BAT 會優先使用 `py -3`。
 
-## 一鍵執行
+## V1 一鍵執行
 
 1. 下載並解壓縮完整 GitHub repository，或用 Git clone。
 2. 進入：
@@ -97,3 +113,13 @@ output\kaohsiung-chang-gung-telemedicine-v2.pptx
 ```
 
 V2 不覆蓋 V1；兩個檔名與建置入口相互獨立。
+
+V2 BAT 執行順序與 V1 相同，但使用以下專案相對路徑：
+
+```text
+.venv\Scripts\python.exe
+requirements.txt
+build_deck_v2.py
+validate_deck_v2.py
+output\kaohsiung-chang-gung-telemedicine-v2.pptx
+```
