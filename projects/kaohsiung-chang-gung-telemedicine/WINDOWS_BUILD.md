@@ -1,6 +1,22 @@
 # Windows 本機產生 PPTX
 
-此專案不提交 `.pptx` 或 `.zip` 二進位檔。下載或 clone GitHub repository 後，可在 Windows 本機從文字來源重建第一版簡報。
+此專案不提交 `.pptx` 或 `.zip` 二進位檔。下載或 clone GitHub repository 後，可在 Windows 本機分別重建 V1 與 V2。
+
+## 建置檔案位置
+
+Windows 建置只使用下列專案資料夾內的檔案：
+
+```text
+projects\kaohsiung-chang-gung-telemedicine\requirements.txt
+projects\kaohsiung-chang-gung-telemedicine\Windows_build_PPT.bat
+projects\kaohsiung-chang-gung-telemedicine\Windows_build_PPT_v2.bat
+projects\kaohsiung-chang-gung-telemedicine\build_deck.py
+projects\kaohsiung-chang-gung-telemedicine\build_deck_v2.py
+projects\kaohsiung-chang-gung-telemedicine\validate_deck.py
+projects\kaohsiung-chang-gung-telemedicine\validate_deck_v2.py
+```
+
+兩個 BAT 均先執行 `cd /d "%~dp0"`，再以 BAT 所在的專案資料夾作為 `.venv`、requirements、程式與 output 的唯一路徑基準。**不讀取 repository 根目錄的 `requirements.txt`。**
 
 ## 系統需求
 
@@ -11,7 +27,7 @@
 
 安裝 Python 時請勾選 **Add python.exe to PATH**。若系統提供 Windows Python Launcher（`py`），BAT 會優先使用 `py -3`。
 
-## 一鍵執行
+## V1 一鍵執行
 
 1. 下載並解壓縮完整 GitHub repository，或用 Git clone。
 2. 進入：
@@ -27,9 +43,9 @@
    ```
 
 4. BAT 會自動：
-   - 以 BAT 所在位置計算專案及 repository 路徑，不依賴目前命令列目錄。
+   - 先執行 `cd /d "%~dp0"` 切換到 BAT 所在的專案資料夾，不依賴目前命令列目錄。
    - 建立或重用 `projects\kaohsiung-chang-gung-telemedicine\.venv`。
-   - 讀取 repository 根目錄的 `requirements.txt` 安裝套件。
+   - 讀取同一專案資料夾內的 `requirements.txt` 安裝套件。
    - 執行 `build_deck.py`。
    - 執行 `validate_deck.py`。
    - 產生下列檔案：
@@ -44,7 +60,7 @@
 
 ```bat
 py -3 -m venv projects\kaohsiung-chang-gung-telemedicine\.venv
-projects\kaohsiung-chang-gung-telemedicine\.venv\Scripts\python.exe -m pip install -r requirements.txt
+projects\kaohsiung-chang-gung-telemedicine\.venv\Scripts\python.exe -m pip install -r projects\kaohsiung-chang-gung-telemedicine\requirements.txt
 projects\kaohsiung-chang-gung-telemedicine\.venv\Scripts\python.exe projects\kaohsiung-chang-gung-telemedicine\build_deck.py
 projects\kaohsiung-chang-gung-telemedicine\.venv\Scripts\python.exe projects\kaohsiung-chang-gung-telemedicine\validate_deck.py
 ```
@@ -53,6 +69,8 @@ projects\kaohsiung-chang-gung-telemedicine\.venv\Scripts\python.exe projects\kao
 
 - `build_deck.py` 只從 Python 標準庫 `pathlib.Path(__file__)` 取得自身位置。
 - 輸出目錄永遠是 `build_deck.py` 同層的 `output`，不存在時會自動建立。
+- `validate_deck.py` 同樣以自身位置尋找 `output` 與 `illustration-prompts.md`。
+- BAT 的 `.venv`、requirements、建置程式、驗證程式及輸出檔路徑全部以 BAT 所在專案資料夾為基準。
 - 程式沒有 `/workspace`、`/home/oai`、Codex 暫存目錄、雲端 API 或環境變數相依性。
 - 簡報內容、配色、文字及版面完全由 repository 內的 Python 原始碼建立。
 - 友善線性醫療插圖仍保留為 IL-01 至 IL-06 原生 placeholder；建置過程不需要圖片生成服務。
@@ -80,3 +98,28 @@ python --version
 
 再次執行 BAT 即可。既有同名 PPTX 會由相同來源重新建立；Clinical Calm 的設計內容不會因本機建置流程而改變。
 
+## Clinical Calm V2 視覺重製版
+
+V1 保留為資訊架構基準。若要產生完成 Visual Redesign 的 V2，請在同一專案資料夾雙擊：
+
+```text
+Windows_build_PPT_v2.bat
+```
+
+V2 使用 `build_deck_v2.py` 與 `validate_deck_v2.py`，並輸出：
+
+```text
+output\kaohsiung-chang-gung-telemedicine-v2.pptx
+```
+
+V2 不覆蓋 V1；兩個檔名與建置入口相互獨立。
+
+V2 BAT 執行順序與 V1 相同，但使用以下專案相對路徑：
+
+```text
+.venv\Scripts\python.exe
+requirements.txt
+build_deck_v2.py
+validate_deck_v2.py
+output\kaohsiung-chang-gung-telemedicine-v2.pptx
+```

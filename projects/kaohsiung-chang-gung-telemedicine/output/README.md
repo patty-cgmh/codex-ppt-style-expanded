@@ -4,7 +4,10 @@
 
 - `.pptx` 與 `.zip` 不納入 repository；此目錄只保留文字說明。
 - Windows 請執行上一層 `Windows_build_PPT.bat`。
+- Windows 建置所需套件列於上一層專案資料夾的 `requirements.txt`。
 - 成功後會在本目錄產生 `kaohsiung-chang-gung-telemedicine-v1.pptx`：15 頁、16:9、繁體中文第一版完整簡報。
+- 執行 `Windows_build_PPT_v2.bat` 會另行產生 `kaohsiung-chang-gung-telemedicine-v2.pptx`；不覆蓋 V1。
+- macOS 可執行上一層 `macOS_build_PPT.sh` 產生同一份 V2；完整步驟見 `MACOS_BUILD.md`。
 - 重建程式為上一層 `build_deck.py`；插圖替換提示詞為上一層 `illustration-prompts.md`。
 
 ## 可編輯層級
