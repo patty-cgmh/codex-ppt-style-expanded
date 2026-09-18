@@ -1,0 +1,40 @@
+{
+  "changed_parts": [
+    "ppt/slides/slide5.xml",
+    "ppt/slides/slide8.xml",
+    "ppt/slides/slide11.xml",
+    "ppt/slides/charts/chart1.xml",
+    "ppt/slides/slide12.xml",
+    "ppt/slides/slide14.xml"
+  ],
+  "locked_slide_and_preview_exact_match": [
+    1,
+    2,
+    3,
+    4,
+    6,
+    7,
+    9,
+    10,
+    13,
+    15
+  ],
+  "chart_values": [
+    372,
+    286,
+    473,
+    494,
+    572,
+    551,
+    541,
+    460
+  ],
+  "chart_total": 3749,
+  "heatmap_institutions": 23,
+  "heatmap_provided_values": 57,
+  "heatmap_real_zeros": 17,
+  "heatmap_missing": 150,
+  "heatmap_explicit_missing_cells": 86,
+  "heatmap_missing_in_group_note": 64,
+  "protected_files_unchanged": 19
+}

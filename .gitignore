@@ -11,3 +11,6 @@ node_modules/
 # Generated presentation artifacts are rebuilt locally from source.
 projects/kaohsiung-chang-gung-telemedicine/output/*.pptx
 projects/kaohsiung-chang-gung-telemedicine/output/*.zip
+
+# Explicitly approved final V3 release artifact.
+!projects/kaohsiung-chang-gung-telemedicine/output/kaohsiung-chang-gung-telemedicine-v3-final.pptx
